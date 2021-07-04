@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink= "/" class="navbar-brand">Recipe Book</a>
+      <button class="navbar-toggler icon1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon my-toggler">-</span>
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto">
+        <li routerLinkActive="active"><a routerLink="/recipes" >Recipes</a></li>
+        <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!onAuth()">
+            <li><a routerLink ="/signup">Register</a></li>
+            <li><a routerLink ="/signin">Log In</a></li>
+        </ng-template>
+        <li *ngIf="onAuth()" ><a style="cursor: pointer;" (click)="authLogOut()">Log Out</a></li>
+        <li class="dropdown"  *ngIf="onAuth()"> 
+          <a style="cursor: pointer;" id="navbarDropdown" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a style="cursor: pointer;" (click)="onAddData()">Save Data</a></li>
+            <li><a style="cursor: pointer;"(click)="onFetchData()">Fetch Data</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

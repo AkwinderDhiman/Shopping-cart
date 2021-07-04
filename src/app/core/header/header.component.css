@@ -1,0 +1,14 @@
+@media only screen and (min-width: 767px) {
+    .icon1{
+        visibility: hidden;
+  }
+}
+@media only screen and (max-width: 766px) {
+    .icon1{
+        visibility: visible;
+        float: right;
+        margin-top: 12px;
+        margin-right: 2%;
+        width: 30px;
+  }
+}
